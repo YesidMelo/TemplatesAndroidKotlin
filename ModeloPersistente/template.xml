@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<template
+	format 		= "4"
+	revision	= "1"
+	name		= "Modelo PersistenteDB MVP"
+	description = "Genera las clases necesarias del modelo para almacenarlas en la base de datos del celular ademas del repositorio asociados a este"
+	minApi		= "15"
+>
+
+	<parameter
+		id 				=	"modelo"
+		name			=	"Nombre del modelo"
+		type			=	"string"
+		constraints		=	"class|nonempty|unique"
+		help			=	"Nombre del modelo de datos"
+	/>
+
+	<parameter
+		id 				=	"crearConsultorBaseDatos"
+		name			=	"Crear consultor DB"
+		type			=	"boolean"
+		constraints		=	"class|nonempty|unique"
+		help			=	"Crea el conector con la base de datos usando roomDB"
+	/>
+
+	<thumbs>
+		<thumb>db.png</thumb>
+	</thumbs>
+
+	<execute file = "recipe.xml.ftl"/>
+</template>

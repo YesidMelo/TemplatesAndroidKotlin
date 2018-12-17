@@ -1,0 +1,35 @@
+<template
+	format			= 		"4"
+	revision		=		"1"
+	name			=		"GeneradorRecicler"
+	description		=		"Esta plantilla ayuda con la generacion de de las opcionde de los recyclers usando configutaciones preestablecidad basandose en la configuracion necesaria para la creacion de un recicler en otros proyectos"
+	minApi			=		"15"
+	>
+	<parameter 
+		id			= 		"Modelo"
+		name		=		"Modelo"
+		type		=		"string"
+		constraints = 		"class|nonempty|unique"
+		help		=		"Nombre del modelo con el cual se generara el reciclerview"
+		/>
+	<parameter
+		id			=		"Estilo"
+		name		=		"Estilo"
+		type		=		"enum"
+		constraints	=		"nonempty|unique"
+		default		=		"default"
+		>
+			<option id="default">defecto</option>
+			<option id="card_btn_derecho">Cardview Boton derecho</option>
+			<option id="card_btn_izquierdo">Cardview Boton izquierdo</option>
+			<option id="card_btn_izquierdo_derecho">Cardview Boton izquierdo derecho</option>
+			<option id="card_titulo_mensaje">Cardview titulo mensaje</option>
+			<option id="card_titulo_mensaje_boton">Cardview titulo mensaje boton</option>
+	</parameter>
+
+	<execute file = "recipe.xml.ftl"/>
+
+	<thumbs>
+		<thumb>reciclerview.png</thumb>
+	</thumbs>
+</template>

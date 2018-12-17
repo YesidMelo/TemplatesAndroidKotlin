@@ -1,0 +1,32 @@
+<template
+	format 			= 		"4"
+	revision		=		"1"
+	name			=		"Mapas"
+	description		=		"Esta plantilla esta enfocada a la implementacion de la libreria de google maps Actualmente cuenta con las siguientes funcionalidades : crear poligono, adicionar poligono, eliminar poligono, crear marca, poner posicion inicial"
+	minApi			=		"15"
+	>
+	<parameter
+		id			=		"TipoMapa"
+		name		=		"Tipo mapa"
+		type		=		"enum"
+		constraint	=		"nonempty|unique"
+		default		=		"google_maps"
+		>
+		<option id= "google_maps">Google maps</option>
+		<option id= "MapBox">MapBox</option>
+		<option id= "Ambos">Ambos</option>
+	</parameter>
+	<parameter
+		id			= 		"Ingles"
+		name		=		"Ingles"
+		type		=		"boolean"
+		constraint	=		"nonempty|unique"
+		default		=		"false"
+		/>
+
+	<thumbs>
+		<thumb>google_maps.png</thumb>
+	</thumbs>
+
+	<execute file = "recipe.xml.ftl"/>
+</template>
