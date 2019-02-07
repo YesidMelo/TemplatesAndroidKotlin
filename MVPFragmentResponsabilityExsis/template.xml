@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<template
+    format="3"
+    revision="4"
+    name="MVP Fragment Responsabilty"
+    minApi="7"
+    minBuildApi="14"
+    description="Se genera la estructura de encarpetado de responsabilidad según el patrón Modelo-Vista-Presentador y la Clean-Architecture. basado en la arquitectura exsis">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="responsability"
+        name="Responsabilty Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        help="Nombre de la responsabilidad" />
+
+    <parameter
+        id="fragmentClass"
+        name="Fragment Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${responsability}Fragment"
+        help="Nombre del fragment de la responsabilidad" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="fragment_${responsability?lower_case}"
+        default="activity_main"
+        help="Nombre del layout de la actividad" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_mvp_responsability.png</thumb>
+    </thumbs>
+
+    <execute file="recipe.xml.ftl" />
+
+</template>

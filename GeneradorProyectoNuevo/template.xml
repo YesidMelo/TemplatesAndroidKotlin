@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<template
+    format="3"
+    revision="4"
+    name="Nueva Aplicacion"
+    minApi="7"
+    minBuildApi="14"
+    description="Genera toda la Estructura que se uttiliza para una nueva aplicacion">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_mvp_responsability.png</thumb>
+    </thumbs>
+
+    <execute file="recipe.xml.ftl" />
+
+</template>
