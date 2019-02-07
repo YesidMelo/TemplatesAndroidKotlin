@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<template
+	format 		= "4"
+	revision	= "1"
+	name		= "Dialogo perzonalizado"
+	description = "Genera el componente de un cuadro de dialogo para su perzonalizacion"
+	minApi		= "15"
+>
+	<execute file = "recipe.xml.ftl"/>
+</template>
