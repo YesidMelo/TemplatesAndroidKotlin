@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<template
+	format 		= "4"
+	revision	= "1"
+	name		= "Dialogo informativo (programacion funcional)"
+	description = "Genera las clases y layouts de un dialogo que mostrara informacion al usuario"
+	minApi		= "15"
+>
+
+
+	<thumbs>
+		<thumb>db.png</thumb>
+	</thumbs>
+
+	<execute file = "recipe.xml.ftl"/>
+</template>
