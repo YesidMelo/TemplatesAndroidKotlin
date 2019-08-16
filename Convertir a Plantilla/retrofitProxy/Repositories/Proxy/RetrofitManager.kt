@@ -1,6 +1,7 @@
 package com.example.myapplication.Repositories.Proxy
 
 import android.util.Log
+import com.example.myapplication.Repositories.Responder.Services
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
@@ -10,14 +11,28 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-/*
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-*/
+
 class RetrofitManager {
 
     interface RetrofitParcelable{}
+    interface ServiceToStart{
+        companion object{
+
+            fun getBaseURL(isMock : Boolean = false) : String{
+                return if (isMock) generateBaseURLMock() else generateBaseURLReal()
+            }
+
+            private fun generateBaseURLMock() :String{
+                return "http://www.mocky.io/v2/"
+            }
+
+            private fun generateBaseURLReal(): String{
+                return ""
+            }
+        }
+
+        fun getApi(retrofit: Retrofit,isMock: Boolean = false,body : String ?= null) : Call<Any>?
+    }
 
     companion object{
 
@@ -31,9 +46,7 @@ class RetrofitManager {
                 return retrofit!!
             }
 
-            val baseURL = Services.getBaseURL(isMock)
-
-            retrofit = Retrofit.Builder().baseUrl(Services.getBaseURL(isMock)).addConverterFactory(GsonConverterFactory.create()).build()
+            retrofit = Retrofit.Builder().baseUrl(ServiceToStart.getBaseURL(isMock)).addConverterFactory(GsonConverterFactory.create()).build()
             return retrofit!!
 
         }
@@ -80,12 +93,12 @@ class RetrofitManager {
         private fun selectResponseBasedOnHttpCode(response: Response<Any>) : (()->Unit)? {
             return when(response.code()){
 
-                200 ->  fun (){ generateResponse200(response) }
-                201 ->  fun (){}
-                204 ->  fun (){}
-                400 ->  fun (){}
-                401 ->  fun (){}
-                404 ->  fun (){}
+                200 ,
+                201 ,
+                204 ,
+                400 ,
+                401 ,
+                404 ->  fun (){ generateResponse200(response) }
                 else -> fun (){ codeNotFound(response.code()) }
 
             }
@@ -158,7 +171,7 @@ class RetrofitManager {
 
     class Config{
 
-        var services : Services ?= null
+        var services : ServiceToStart?= null
 
         var failResponse :(()->Unit)? = null
         private var objectToSend : RetrofitParcelable ?= null

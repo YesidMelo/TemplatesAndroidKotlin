@@ -15,4 +15,7 @@ interface TestConceptual {
     @POST("5d55b16a350000a524087f3d")
     fun getModelTestPost(@Body body:String?) : Call<Any>
 
+    @POST("5d55db9c350000f859087fc9")
+    fun getListModelsWithAuthorization(@Header("Authorization") token : String?)
+
 }
