@@ -1,0 +1,16 @@
+<template
+	format 			= 		"4"
+	revision		=		"1"
+	name			=		"ProxyVolley"
+	description		=		"Plantilla enfocada en la en la gestion de conexion de "
+	minApi			=		"15"
+	>
+	
+	<thumbs>
+		<thumb>base_datos.png</thumb>
+	</thumbs>
+
+	<execute file="recipe.xml.ftl" />
+
+	
+</template>
