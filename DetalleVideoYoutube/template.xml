@@ -1,0 +1,16 @@
+<template
+	format 			= 		"4"
+	revision		=		"1"
+	name			=		"Visualizador Detalle video youtube"
+	description		=		"Plantilla enfocada en la visualizacion de archivos pdf usando webview. Esta vista tendra Un visor y un dialogo"
+	minApi			=		"15"
+	>
+	
+	<thumbs>
+		<thumb>youtube.png</thumb>
+	</thumbs>
+
+	<execute file="recipe.xml.ftl" />
+
+	
+</template>
